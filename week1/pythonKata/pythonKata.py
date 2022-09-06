@@ -1,6 +1,6 @@
 # Original function
 # def kata():
-    # user_num = input('Please enter a number: ')
+#     user_num = input('Please enter a number: ')
 #     parsed = int(user_num)
 
 #     if parsed == 1:
