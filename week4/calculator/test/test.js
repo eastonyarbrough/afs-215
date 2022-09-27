@@ -10,7 +10,7 @@ it('expect passing test', () => {
 })
 
 it('expect invalid operation', () => {
-    expect(calculator(10, 'plus', 5)).to.equal('Please enter valid operation (+, -, x, /).');
+    expect(calculator(10, 'plus', 5)).to.equal('Please enter valid operation ("+", "-", "x", "/").');
 })
 
 it('expect invalid numbers', () => {
