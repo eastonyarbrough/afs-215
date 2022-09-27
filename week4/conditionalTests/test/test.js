@@ -7,8 +7,7 @@ it('expect failing test', () => {
 
 it ('expect passing test', () => {
     const flip = Math.floor(Math.random() * 2 + 1);
-
-    const number = () => {
+    const getNumber = () => {
         if (flip === 1) {
             return Math.floor(Math.random() * 30 + 1)
         }
@@ -16,23 +15,21 @@ it ('expect passing test', () => {
             return `${Math.floor(Math.random() * 30 + 1)}`
         }
     }
+    const number = getNumber();
 
-    if (typeof number() !== 'number') {
-        expect(greeting(number())).to.equal('Error: Please enter a number.');
+    if (typeof number !== 'number') {
+        expect(greeting(number)).to.equal('Error: Please enter a number.');
     }
-    else if (number() === 1) {
-        expect(greeting(number())).to.equal('1');
+    else if (number % 3 === 0 && number % 7 !== 0) {
+        expect(greeting(number)).to.equal('Good Morning');
     }
-    else if (number() === 2) {
-        expect(greeting(number())).to.equal('2');
+    else if (number % 3 !== 0 && number % 7 === 0) {
+        expect(greeting(number)).to.equal('Good Afternoon');
     }
-    else if (number() % 3 === 0 && number % 7 !== 0) {
-        expect(greeting(number())).to.equal('Good Morning');
+    else if (number % 3 === 0 && number % 7 === 0) {
+        expect(greeting(number)).to.equal('Good Evening');
     }
-    else if (number() % 3 !== 0 && number % 7 === 0) {
-        expect(greeting(number())).to.equal('Good Afternoon');
-    }
-    else if (number() % 3 === 0 && number % 7 === 0) {
-        expect(greeting(number())).to.equal('Good Evening');
+    else if (number % 3 !== 0 && number % 7 !== 0) {
+        expect(greeting(number)).to.equal(`${number}`);
     }
 })
