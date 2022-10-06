@@ -18,7 +18,7 @@ class DataTypes:
         self.add(tuple(tupe))
 
     def getList(self):
-        return self.types
+        return tuple(self.types)
 
 myList = DataTypes()
 
