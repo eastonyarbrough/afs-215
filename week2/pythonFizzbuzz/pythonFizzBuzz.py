@@ -1,4 +1,4 @@
-numberParsed = 3
+numberParsed = 15
 def PepsiCoke(num):
     if num == '1':
         return '1'
