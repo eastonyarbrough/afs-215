@@ -15,7 +15,7 @@ class Todo {
 
     toggleComplete() {
         this.complete = !this.complete;
-        return `Task completion was set to ${this.complete}`;
+        return `'${this.task}' completion was set to ${this.complete}`;
     }
 }
 
@@ -73,7 +73,23 @@ class List {
             return this.list[index].toggleComplete();
         }
         else if (typeof value === 'number') {
-            return this.list[index].changePriority(value);
+            const temp = [...this.list];
+            const priorityItem = this.list[index]
+            const rearrange = (count) => {
+                if (temp.length-1 > 0) {
+                    if (value < this.list[count].priority) {
+                        const lowerItem = this.list[count]
+                        this.list[count] = this.list[index]
+                        this.list[index] = lowerItem;
+                    }
+                    temp.splice(temp.length-1, 1);
+                    count++
+                    return rearrange(count);
+                }
+                return;
+            }
+            rearrange(0);
+            return priorityItem.changePriority(value);
         }
     }
 
@@ -99,15 +115,16 @@ module.exports = List;
 
 // myList = new List();
 
-// console.log(myList.push('Do the dishes, Fold the laundry, Cook dinner'));
-// console.log(myList.push('Type the code, Do the tests'));
-// console.log(myList.push('Insert just one thing'));
-// console.log(myList.delete('Insert just one thing'));
-// console.log(myList.shift());
-// console.log(myList.pop());
+// console.log(myList.push('Do the dishes, Fold the laundry, Cook dinner, Type the code'));
+// console.log(myList.push('Do the tests'));
 
-// console.log(myList.getList());
+// console.log(myList.editList('Cook dinner', 3))
+// console.log(myList.editList('Type the code', 1))
+// console.log(myList.editList('Fold the laundry', 4))
+// console.log(myList.editList('Do the dishes', 3))
+// console.log(myList.editList('Do the tests', 2))
 
-// console.log(myList.editList('Cook dinner', 2))
+// console.log(myList.editList('Type the code', true))
+// console.log(myList.editList('Do the tests', true))
 
 // console.log(myList.getList());
