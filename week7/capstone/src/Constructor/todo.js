@@ -112,19 +112,3 @@ class List {
 }
 
 module.exports = List;
-
-// myList = new List();
-
-// console.log(myList.push('Do the dishes, Fold the laundry, Cook dinner, Type the code'));
-// console.log(myList.push('Do the tests'));
-
-// console.log(myList.editList('Cook dinner', 3))
-// console.log(myList.editList('Type the code', 1))
-// console.log(myList.editList('Fold the laundry', 4))
-// console.log(myList.editList('Do the dishes', 3))
-// console.log(myList.editList('Do the tests', 2))
-
-// console.log(myList.editList('Type the code', true))
-// console.log(myList.editList('Do the tests', true))
-
-// console.log(myList.getList());
