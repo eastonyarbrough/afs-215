@@ -21,10 +21,56 @@ main {
     flex-direction: column;
 }
 
+#headerUI {
+    margin: 30px 0px;
+}
+
 h1 {
     font-size: 65px;
+    color: whitesmoke;
+}
+
+#list {
+    margin: 50px 0px;
 }
 
 li {
     font-size: 40px;
+    color: whitesmoke;
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: 250px 100px;
+}
+
+.task {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.numInputs {
+    width: 30px;
+}
+
+.actionUI {
+    margin: 0px 5px;
+}
+
+.xBtns {
+    background-color: aqua;
+    border-radius: 5px;
+    width: 30px;
+    height: 20px;
 }

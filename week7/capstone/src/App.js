@@ -34,7 +34,7 @@ function App() {
   return (
     <div>
       <main>
-        <div className='flexColumn'>
+        <div id='headerUI' className='flexColumn'>
           <h1>My Todo List:</h1>
           <form onSubmit={e => {
             e.preventDefault();
@@ -53,9 +53,11 @@ function App() {
             }}>Delete Last</button>
           </form>
         </div>
-        <TodoContext.Provider value={{ listClass, myList, setMyList }}>
-          <Todo/>
-        </TodoContext.Provider>
+        <div id='list'>
+          <TodoContext.Provider value={{ listClass, myList, setMyList }}>
+            <Todo/>
+          </TodoContext.Provider>
+        </div>
       </main>
     </div>  
   );
