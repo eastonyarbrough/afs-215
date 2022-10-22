@@ -19,22 +19,45 @@ function App() {
     }
   }
 
+  const removeFirst = () => {
+    listClass.shift();
+    const temp = [...listClass.list];
+    setMyList(temp);
+  }
+
+  const removeLast = () => {
+    listClass.pop();
+    const temp = [...listClass.list];
+    setMyList(temp);
+  }
+
   return (
     <div>
-      <h1>My Todo List:</h1>
-      <div>
-        <form onSubmit={e => {
-          e.preventDefault();
-          addTodo();
-        }}>
-          <input type='text' id='task' placeholder='Enter task'></input>
-          <button>Add Task</button>
-        </form>
-      </div>
-      <TodoContext.Provider value={{ listClass, myList, setMyList }}>
-        <Todo/>
-      </TodoContext.Provider>
-    </div>
+      <main>
+        <div className='flexColumn'>
+          <h1>My Todo List:</h1>
+          <form onSubmit={e => {
+            e.preventDefault();
+            addTodo();
+            document.querySelector('#task').value = '';
+          }}>
+            <input type='text' id='task' placeholder='Enter task'></input>
+            <button>Add Task</button>
+            <button onClick={e => {
+              e.preventDefault();
+              removeFirst()
+            }}>Delete First</button>
+            <button onClick={e => {
+              e.preventDefault();
+              removeLast()
+            }}>Delete Last</button>
+          </form>
+        </div>
+        <TodoContext.Provider value={{ listClass, myList, setMyList }}>
+          <Todo/>
+        </TodoContext.Provider>
+      </main>
+    </div>  
   );
 }
 

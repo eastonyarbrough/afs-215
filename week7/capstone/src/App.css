@@ -1,0 +1,30 @@
+*{margin: 0px; padding: 0px}
+
+html, body {
+    max-width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    background: linear-gradient(to bottom, rgb(50, 137, 168), rgb(45, 112, 179), rgb(37, 60, 186)) no-repeat;
+}
+
+main {
+    font-family: 'Ruthie', cursive;
+}
+
+.flexColumn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 65px;
+}
+
+li {
+    font-size: 40px;
+}

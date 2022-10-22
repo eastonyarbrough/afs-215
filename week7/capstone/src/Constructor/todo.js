@@ -73,23 +73,9 @@ class List {
             return this.list[index].toggleComplete();
         }
         else if (typeof value === 'number') {
-            const temp = [...this.list];
-            const priorityItem = this.list[index]
-            const rearrange = (count) => {
-                if (temp.length-1 > 0) {
-                    if (value < this.list[count].priority) {
-                        const lowerItem = this.list[count]
-                        this.list[count] = this.list[index]
-                        this.list[index] = lowerItem;
-                    }
-                    temp.splice(temp.length-1, 1);
-                    count++
-                    return rearrange(count);
-                }
-                return;
-            }
-            rearrange(0);
-            return priorityItem.changePriority(value);
+            const output = this.list[index].changePriority(value);
+            this.list.sort((a, b) => a.priority > b.priority);
+            return output;
         }
     }
 
